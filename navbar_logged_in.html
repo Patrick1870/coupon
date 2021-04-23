@@ -1,0 +1,348 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Coupon - Today's offers</title>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <style>
+            body {
+                background-color: #F2F2F2;
+                font-size: 14px !important;
+            }
+
+            #cat:hover, #deal:hover {
+                background-color: #412F4F;
+            }
+
+            .deal_color {
+                background-color: #96CA4E;
+            }
+
+            .deal_color_light {
+                background-color: #DAECC2;
+            }
+            
+            .bg_percentage_off {
+                background-color: #F8F8F8;
+            }
+
+            @media (min-width: 1280px) {
+                .container {
+                    max-width: 1200px;
+                }
+            }   
+
+            .input_icon {
+                background: url(img/search_icon.png) no-repeat scroll 10px 12px;
+                padding-left:35px;
+                background-size: 17px 17px;
+            }
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                right:-45px;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                padding: 12px 16px;
+                z-index: 1;
+                }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        </style>
+        <script>
+            function showMobile() {
+                var element = document.getElementById("sub_menu_mobile");
+                element.classList.toggle("hidden");
+            }
+        </script>
+    </head>
+    <body>
+        <nav class="flex" style="background-color: #28202E;">
+            <div id="menu" class="container px-1 sm:px-0 mx-auto text-white flex items-center justify-between">
+                
+                <div class="flex space-x-1 md:space-x-2 lg:space-x-6 items-center">
+                    <img src="/img/logo.jpg" alt="Coupon logo" width="192" height="50" class="hidden md:flex object-contain md:w-32" />
+                    <img src="/img/logo.jpg" alt="Coupon logo" width="192" height="50" class="md:hidden object-contain w-28 cursor-pointer" onclick="showMobile()" />
+                    <div id="cat" class="p-4 cursor-pointer hidden md:block" onmouseover="document.getElementById('sub_menu').style.display = 'block'" onmouseout="document.getElementById('sub_menu').style.display = 'none'">Kategorie</div>
+                    <div id="deal" class="p-4 cursor-pointer hidden md:block">Deal alert</div>
+                </div>
+        
+                <div class="flex space-x-2 items-center py-4 sm:py-2">
+                    <div class="bg-white rounded">
+                        <input placeholder="Szukaj..." class="w-40 lg:w-96 h-10 rounded p-5 text-black hidden md:flex input_icon" />
+                    </div>
+                    <div>
+                        <button class="rounded py-1 px-1 sm:py-2 sm:px-2">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.2573 10.1025L19.9998 14.365V5.65997L13.2573 10.1025Z" fill="#8E8F8F"/>
+                            <path d="M0 5.65997V14.365L6.7425 10.1025L0 5.65997Z" fill="#8E8F8F"/>
+                            <path d="M18.7501 3.125H1.2501C0.626348 3.125 0.131348 3.59 0.0375977 4.18875L10.0001 10.7525L19.9626 4.18875C19.8688 3.59 19.3738 3.125 18.7501 3.125Z" fill="#8E8F8F"/>
+                            <path d="M12.1125 10.8575L10.3438 12.0225C10.2388 12.0913 10.12 12.125 10 12.125C9.88004 12.125 9.76129 12.0913 9.65629 12.0225L7.88754 10.8563L0.0400391 15.82C0.136289 16.4138 0.628789 16.875 1.25004 16.875H18.75C19.3713 16.875 19.8638 16.4138 19.96 15.82L12.1125 10.8575Z" fill="#8E8F8F"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div>
+                        <button class="rounded py-1 px-1">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0)">
+                                <path d="M17.8162 14.0942C16.5562 13.0292 15.8337 11.4725 15.8337 9.82333V7.5C15.8337 4.5675 13.6553 2.14 10.8337 1.73333V0.833333C10.8337 0.3725 10.4603 0 10.0003 0C9.54033 0 9.16699 0.3725 9.16699 0.833333V1.73333C6.34449 2.14 4.16699 4.5675 4.16699 7.5V9.82333C4.16699 11.4725 3.44449 13.0292 2.17699 14.1008C1.85283 14.3783 1.66699 14.7817 1.66699 15.2083C1.66699 16.0125 2.32116 16.6667 3.12533 16.6667H16.8753C17.6795 16.6667 18.3337 16.0125 18.3337 15.2083C18.3337 14.7817 18.1478 14.3783 17.8162 14.0942Z" fill="#8E8F8F"/>
+                                <path d="M10.0006 20C11.5098 20 12.7723 18.9242 13.0623 17.5H6.93896C7.22896 18.9242 8.49146 20 10.0006 20Z" fill="#8E8F8F"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0">
+                                <rect width="20" height="20" fill="white"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+                        </button>
+                    </div>
+                    <div>
+                        <button class="dropdown">
+                            <span class="bg-gray-700 p-4 rounded-full h-10 w-10 flex items-center">K</span>
+                            <div class="dropdown-content text-black flex text-left space-y-5">
+                                <p>Your Profile</p>
+                                <p>Settings</p>
+                                <p>Sign out</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div>
+                        <button class="flex items-center bg-yellow-400 hover:bg-yellow-500 space-x-1 rounded py-3 px-3 xs:py-2 xs:px-4">
+                            <svg width="13" height="13" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.2143 8.21429H12.1429C11.9456 8.21429 11.7857 8.05437 11.7857 7.85714V1.78571C11.7857 0.799561 10.9862 0 10 0C9.01385 0 8.21429 0.799561 8.21429 1.78571V7.85714C8.21429 8.05437 8.05437 8.21429 7.85714 8.21429H1.78571C0.799561 8.21429 0 9.01385 0 10C0 10.9862 0.799561 11.7857 1.78571 11.7857H7.85714C8.05437 11.7857 8.21429 11.9456 8.21429 12.1429V18.2143C8.21429 19.2004 9.01385 20 10 20C10.9862 20 11.7857 19.2004 11.7857 18.2143V12.1429C11.7857 11.9456 11.9456 11.7857 12.1429 11.7857H18.2143C19.2004 11.7857 20 10.9862 20 10C20 9.01385 19.2004 8.21429 18.2143 8.21429Z" fill="white"/>
+                            </svg>
+
+                            <span class="font-bold hidden xs:block">Dodaj</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="flex text-white hidden absolute z-20 left-0 right-0 -mt-1" id="sub_menu" style="background-color: #412F4F;" onmouseover="document.getElementById('sub_menu').style.display = 'block'" onmouseout="document.getElementById('sub_menu').style.display = 'none'">
+            <div class="container mx-auto pt-10 pb-10 flex lg:space-x-10 flex-col lg:flex-row xl:space-x-20 space-y-10 lg:space-y-0">
+                <div>
+                    <h1 class="text-2xl">Kategorie</h1>
+                    <div class="flex space-x-20 lg:space-x-6 xl:space-x-10">
+                        <div class="flex flex-col">
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                        </div> 
+        
+                        <div class="flex flex-col">
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                         </div> 
+        
+                        <div class="flex flex-col">
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                        </div> 
+                        
+                        <div class="flex flex-col">
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                        </div> 
+                    </div>
+                </div>
+                <div>
+                    <h1 class="text-2xl">Sklepy</h1>
+                    <div class="flex space-x-20 lg:space-x-6 xl:space-x-10">
+                        <div class="flex flex-col">
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                        </div> 
+        
+                        <div class="flex flex-col">
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                    </div> 
+        
+                    <div class="flex flex-col">
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                        </div> 
+                        
+                        <div class="flex flex-col">
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                            <p class="opacity-60 text-sm py-2 cursor-pointer hover:opacity-100">Category One 1</p>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hidden md:hidden text-white " id="sub_menu_mobile" style="background-color: #412F4F;">
+            <div class="container mx-auto pt-5 pb-2 px-2">
+                <div class="bg-white rounded">
+                    <input placeholder="Szukaj..." class="w-full h-10 rounded p-5 text-black input_icon" />
+                </div>
+                <a class="flex space-x-2 my-4 items-center">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                        <path d="M19.4603 8.69904C19.4598 8.69858 19.4594 8.69812 19.4589 8.69766L11.3005 0.539551C10.9527 0.19165 10.4904 0 9.99862 0C9.50683 0 9.04448 0.191498 8.69658 0.539398L0.54244 8.69339C0.539693 8.69614 0.536947 8.69904 0.5342 8.70178C-0.179911 9.42001 -0.17869 10.5853 0.53771 11.3017C0.865011 11.6292 1.29729 11.8188 1.75948 11.8387C1.77825 11.8405 1.79717 11.8414 1.81624 11.8414H2.14141V17.8453C2.14141 19.0334 3.10805 20 4.29641 20H7.48824C7.81173 20 8.07418 19.7377 8.07418 19.4141V14.707C8.07418 14.1649 8.51516 13.7239 9.0573 13.7239H10.9399C11.4821 13.7239 11.9231 14.1649 11.9231 14.707V19.4141C11.9231 19.7377 12.1854 20 12.509 20H15.7008C16.8892 20 17.8558 19.0334 17.8558 17.8453V11.8414H18.1573C18.649 11.8414 19.1113 11.6499 19.4594 11.302C20.1765 10.5844 20.1768 9.41711 19.4603 8.69904V8.69904Z" fill="#FF7900"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0">
+                        <rect width="20" height="20" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                        
+                    <p style="color: #FF7900;"><strong>Strona główna</strong> / Wszystkie</p>
+                </a>
+                <a href="#" class="flex space-x-2 my-4 text-white items-center opacity-60 hover:opacity-100">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                        <path d="M19.9999 4.19043C19.0757 2.87063 17.2383 2.52282 15.9183 3.44696L9.13086 8.1995L6.66278 6.47114C7.58176 4.8845 7.14949 2.83133 5.61942 1.76008C4.00364 0.629067 1.77742 1.02157 0.64594 2.63704C-0.485037 4.25258 -0.0928495 6.47926 1.52297 7.61075C2.63172 8.38708 4.02832 8.44528 5.16082 7.88348L8.18379 10.0001L5.1611 12.1164C4.0286 11.5549 2.63207 11.6131 1.52324 12.3892C-0.0924978 13.5207 -0.484725 15.7471 0.646213 17.3626C1.7777 18.9784 4.00414 19.3709 5.61965 18.2398C7.14953 17.1686 7.58172 15.1154 6.66301 13.5288L9.1311 11.8004L15.9182 16.5527C17.2383 17.4771 19.0757 17.1291 19.9998 15.8092L11.7026 10L19.9999 4.19043ZM3.57906 6.5445C2.55668 6.5445 1.72781 5.71563 1.72781 4.69325C1.72781 3.67086 2.55672 2.842 3.57906 2.842C4.60168 2.842 5.43031 3.67086 5.43031 4.69325C5.43031 5.71563 4.60168 6.5445 3.57906 6.5445ZM3.57906 17.1583C2.55668 17.1583 1.72781 16.3295 1.72781 15.3071C1.72781 14.2847 2.55668 13.4558 3.57906 13.4558C4.60168 13.4558 5.43031 14.2847 5.43031 15.3071C5.43031 16.3294 4.60168 17.1583 3.57906 17.1583Z" fill="#ffffff"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0">
+                        <rect width="20" height="20" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                        
+                    <p>Kupony</p>
+                </a>
+                <a href="#" class="flex space-x-2 my-4 text-white items-center opacity-60 hover:opacity-100">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                        <path d="M13.0156 4.49359C11.8865 2.18813 9.52466 0.66391 6.87538 0.66391C3.08457 0.66391 0.000545166 3.73044 0.000545166 7.49969C0.000545166 8.52404 0.220462 9.50585 0.654514 10.4213L0.0119121 13.6347C-0.0698829 14.0437 0.290968 14.4053 0.700099 14.3243L3.95311 13.6812C4.39111 13.889 4.84422 14.047 5.3098 14.1558C4.26619 9.21293 8.01282 4.57319 13.0156 4.49359V4.49359Z" fill="#ffffff"/>
+                        <path d="M19.3458 15.4211C19.4581 15.1844 19.5557 14.9431 19.6392 14.6979H19.6178C21.0806 10.4044 18.0043 5.89186 13.463 5.67214C13.4629 5.6719 13.4628 5.67167 13.4628 5.67143C9.5552 5.49136 6.30872 8.62004 6.30872 12.4996C6.30872 16.2656 9.36962 19.3297 13.1345 19.3352C14.1556 19.3338 15.1344 19.114 16.0472 18.6811C19.6099 19.3854 19.332 19.3353 19.4139 19.3353C19.7841 19.3353 20.0607 18.996 19.9884 18.6345L19.3458 15.4211Z" fill="#ffffff"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0">
+                        <rect width="20" height="20" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                        
+                    <p>Dyskusje</p>
+                </a>
+            </div>
+            <hr class="text-gray-400 "/>
+            <div class="container mx-auto pt-5 pb-5 px-2">
+                <a href="#" class="flex space-x-2 mb-4 mt-0 text-white items-center opacity-60 hover:opacity-100">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.0584 7.33557C9.85861 7.06909 9.52549 6.93591 9.12588 6.93591H5.32892C4.59619 6.93591 3.99669 7.46887 3.86345 8.13496L3.79686 8.66792C3.73027 9.00099 3.86351 9.40065 4.06328 9.66713C4.26311 9.93355 4.59624 10.0668 4.99585 10.0668H8.79281C9.45895 10.0668 10.0584 9.53394 10.2583 8.86775L10.3249 8.33479C10.3915 8.00172 10.2583 7.60205 10.0584 7.33557ZM8.8594 8.60127C8.8594 8.66786 8.79276 8.73445 8.72616 8.73445H5.0625L5.12909 8.33479C5.12909 8.2682 5.19573 8.2016 5.26233 8.2016H8.926L8.8594 8.60127Z" fill="#ffffff"/>
+                        <path d="M19.5173 6.00335C19.1822 5.61231 18.7061 5.36259 18.1291 5.2919C18.1272 5.26232 18.1242 5.23296 18.1184 5.20408C17.852 4.20487 16.7862 3.47219 15.5872 3.47219H10.6629L8.99263 1.74013C8.85939 1.60684 8.7262 1.54025 8.52637 1.54025H2.59792C1.0658 1.54019 0 2.47276 0 3.73845V15.5954C0 16.3049 0.321217 17.0711 0.842805 17.6323C0.850725 17.6416 0.857944 17.6512 0.865972 17.6604C1.26563 18.1933 1.86518 18.4598 2.53127 18.4598H2.59786H15.5873C16.9861 18.4598 18.1851 17.1275 18.4516 15.8618L19.9836 7.80173C20.0502 7.13564 19.917 6.46955 19.5173 6.00335ZM1.33233 3.73861C1.33228 3.07247 2.13161 2.87259 2.59792 2.87259H8.25995L9.85865 4.53788C9.97724 4.65647 10.1222 4.72193 10.27 4.73497C10.3627 4.77979 10.4708 4.80442 10.5913 4.80442H15.5873C16.0463 4.80442 16.466 4.99972 16.6974 5.27062H4.72952C3.33065 5.27062 2.13161 6.20318 1.93183 7.46882L1.33228 10.7011V3.73861H1.33233ZM18.6513 7.60217L17.1193 15.6622C16.986 16.395 16.32 17.1276 15.6538 17.1276H15.5873H2.59792C2.33995 17.1276 2.0697 16.9671 1.84546 16.7313C1.71422 16.5066 1.67618 16.2743 1.73194 15.9952L3.264 7.7353C3.33065 7.06916 3.99673 6.6029 4.72947 6.6029L17.4524 6.66955H17.7854C18.1185 6.66955 18.3849 6.73614 18.5182 6.93597C18.6513 7.06921 18.7179 7.33574 18.6513 7.60217Z" fill="#ffffff"/>
+                    </svg>
+                        
+                    <p>Wszystkie grupy</p>
+        
+                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.5558 9.2196L6.65555 0.31951C6.4497 0.113495 6.1749 0 5.8819 0C5.58889 0 5.3141 0.113495 5.10824 0.31951L4.4528 0.974789C4.0263 1.40178 4.0263 2.09576 4.4528 2.52209L11.9266 9.99585L4.44451 17.4779C4.23866 17.6839 4.125 17.9586 4.125 18.2514C4.125 18.5446 4.23866 18.8192 4.44451 19.0254L5.09995 19.6805C5.30597 19.8865 5.5806 20 5.8736 20C6.16661 20 6.4414 19.8865 6.64726 19.6805L15.5558 10.7723C15.7621 10.5656 15.8755 10.2897 15.8748 9.99634C15.8755 9.70187 15.7621 9.4261 15.5558 9.2196Z" fill="white"/>
+                    </svg>
+                </a>
+        
+                <div class="flex space-x-4 text-white">
+                    <div class="flex flex-1 space-y-3 flex-col truncate">
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Elektronika</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Dom i mieszkanie</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Ogród i majsterkowanie</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Rodzina i dzieci</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Motoryzacja</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Sport i turystyka</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Finanse i ubezpieczenia</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Podróże</a>
+                    </div>
+                    <div class="flex flex-1 space-y-3 flex-col truncate">
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Gaming</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Moda</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Zdrowie i uroda</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Artykuły spożywcze</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Kultura i rozrywka</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Internet i usługi telefoniczne</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Usługi i subskrypcje</a>
+                    </div>
+                </div>
+            </div>
+        
+            <hr class="text-gray-400"/>
+            <div class="container mx-auto pt-5 pb-10 px-2">
+                <a href="#" class="flex space-x-2 mb-4 mt-0 text-white items-center opacity-60 hover:opacity-100">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                        <path d="M19.8877 6.51258L16.7627 2.13762C16.6377 1.97512 16.4502 1.87512 16.2502 1.87512H3.75031C3.55031 1.87512 3.36281 1.97512 3.23782 2.13762L0.112846 6.51258C0.0753466 6.62508 0.0378469 6.73757 0.000347307 6.85007C-0.0121526 8.23756 1.11284 9.37505 2.50032 9.37505C3.25032 9.37505 3.91281 9.05005 4.3753 8.52506C4.8378 9.05005 5.50029 9.37505 6.25029 9.37505C7.00028 9.37505 7.66277 9.05005 8.12527 8.52506C8.58776 9.05005 9.25026 9.37505 10.0002 9.37505C10.7502 9.37505 11.4127 9.05005 11.8752 8.52506C12.3377 9.05005 13.0002 9.37505 13.7502 9.37505C14.5002 9.37505 15.1627 9.05005 15.6252 8.52506C16.0877 9.05005 16.7502 9.37505 17.5002 9.37505C18.8877 9.37505 20.0127 8.23756 20.0002 6.85007C19.9627 6.73757 19.9252 6.62508 19.8877 6.51258Z" fill="#ffffff"/>
+                        <path d="M17.5001 10.625C16.8363 10.625 16.1901 10.4475 15.6251 10.12C14.4951 10.7737 13.0051 10.7737 11.8751 10.12C10.7452 10.7737 9.25392 10.7737 8.12518 10.12C6.99644 10.7737 5.50395 10.7737 4.37521 10.12C3.43647 10.665 2.27398 10.735 1.25024 10.3812V16.8749C1.25024 17.5649 1.81024 18.1249 2.50023 18.1249H12.5001V11.875H16.2501V18.1249H17.5001C18.1901 18.1249 18.7501 17.5649 18.7501 16.8749V10.3962C18.3526 10.5375 17.9338 10.625 17.5001 10.625ZM8.75017 15.6249H3.75022V11.875H8.75017V15.6249Z" fill="#ffffff"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0">
+                        <rect width="20" height="20" fill="white"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+                        
+                        
+                    <p>Wszyscy sprzedawcy</p>
+        
+                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.5558 9.2196L6.65555 0.31951C6.4497 0.113495 6.1749 0 5.8819 0C5.58889 0 5.3141 0.113495 5.10824 0.31951L4.4528 0.974789C4.0263 1.40178 4.0263 2.09576 4.4528 2.52209L11.9266 9.99585L4.44451 17.4779C4.23866 17.6839 4.125 17.9586 4.125 18.2514C4.125 18.5446 4.23866 18.8192 4.44451 19.0254L5.09995 19.6805C5.30597 19.8865 5.5806 20 5.8736 20C6.16661 20 6.4414 19.8865 6.64726 19.6805L15.5558 10.7723C15.7621 10.5656 15.8755 10.2897 15.8748 9.99634C15.8755 9.70187 15.7621 9.4261 15.5558 9.2196Z" fill="white"/>
+                    </svg>
+                </a>
+        
+                <div class="flex space-x-4 text-white">
+                    <div class="flex flex-1 space-y-3 flex-col truncate">
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Empik</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Emag</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">x-kom</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">merlin.pl</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Komputronik</a>
+                    </div>
+                    <div class="flex flex-1 space-y-3 flex-col truncate">
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">AliExpress</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Yves Rocher</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">RTV Euro AGD</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Redcoon</a>
+                        <a class="truncate opacity-60 hover:opacity-100" href="#">Saturn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
